@@ -1,0 +1,137 @@
+{
+  "devices": {
+    "device-001": {
+      "hostname": "Router-01",
+      "vendor": "Cisco",
+      "model": "CSR1000V",
+      "osVersion": "IOS-XE 17.3.4",
+      "serialNumber": "SN-2024-001",
+      "status": "running",
+      "uptime": 864000,
+      "interfaces": [
+        {
+          "name": "GigabitEthernet1",
+          "ipAddress": "192.168.1.1",
+          "subnetMask": "255.255.255.0",
+          "enabled": true,
+          "status": "up",
+          "description": "Management Interface",
+          "speed": "1000Mbps",
+          "mtu": "1500"
+        },
+        {
+          "name": "GigabitEthernet2",
+          "ipAddress": "10.0.0.1",
+          "subnetMask": "255.255.255.0",
+          "enabled": true,
+          "status": "up",
+          "description": "LAN Interface",
+          "speed": "1000Mbps",
+          "mtu": "1500"
+        },
+        {
+          "name": "GigabitEthernet3",
+          "ipAddress": "172.16.0.1",
+          "subnetMask": "255.255.255.252",
+          "enabled": false,
+          "status": "down",
+          "description": "WAN Interface - ISP Link",
+          "speed": "1000Mbps",
+          "mtu": "1500"
+        },
+        {
+          "name": "Loopback0",
+          "ipAddress": "10.255.255.1",
+          "subnetMask": "255.255.255.255",
+          "enabled": true,
+          "status": "up",
+          "description": "Router ID",
+          "speed": "N/A",
+          "mtu": "1514"
+        }
+      ]
+    },
+    "device-002": {
+      "hostname": "Switch-01",
+      "vendor": "Cisco",
+      "model": "Catalyst 9300",
+      "osVersion": "IOS-XE 17.6.1",
+      "serialNumber": "SN-2024-002",
+      "status": "running",
+      "uptime": 432000,
+      "interfaces": [
+        {
+          "name": "GigabitEthernet1/0/1",
+          "ipAddress": "192.168.1.2",
+          "subnetMask": "255.255.255.0",
+          "enabled": true,
+          "status": "up",
+          "description": "Uplink to Router-01",
+          "speed": "1000Mbps",
+          "mtu": "1500"
+        },
+        {
+          "name": "GigabitEthernet1/0/2",
+          "ipAddress": "",
+          "subnetMask": "",
+          "enabled": true,
+          "status": "up",
+          "description": "Access Port - VLAN 10",
+          "speed": "1000Mbps",
+          "mtu": "1500"
+        },
+        {
+          "name": "Vlan10",
+          "ipAddress": "10.10.10.1",
+          "subnetMask": "255.255.255.0",
+          "enabled": true,
+          "status": "up",
+          "description": "Data VLAN",
+          "speed": "N/A",
+          "mtu": "1500"
+        }
+      ]
+    },
+    "device-003": {
+      "hostname": "Firewall-01",
+      "vendor": "Cisco",
+      "model": "ASAv",
+      "osVersion": "ASA 9.16",
+      "serialNumber": "SN-2024-003",
+      "status": "running",
+      "uptime": 172800,
+      "interfaces": [
+        {
+          "name": "GigabitEthernet0/0",
+          "ipAddress": "203.0.113.1",
+          "subnetMask": "255.255.255.252",
+          "enabled": true,
+          "status": "up",
+          "description": "Outside Interface",
+          "speed": "1000Mbps",
+          "mtu": "1500"
+        },
+        {
+          "name": "GigabitEthernet0/1",
+          "ipAddress": "192.168.1.254",
+          "subnetMask": "255.255.255.0",
+          "enabled": true,
+          "status": "up",
+          "description": "Inside Interface",
+          "speed": "1000Mbps",
+          "mtu": "1500"
+        },
+        {
+          "name": "GigabitEthernet0/2",
+          "ipAddress": "172.16.100.1",
+          "subnetMask": "255.255.255.0",
+          "enabled": false,
+          "status": "down",
+          "description": "DMZ Interface - Disabled",
+          "speed": "1000Mbps",
+          "mtu": "1500"
+        }
+      ]
+    }
+  }
+}

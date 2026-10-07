@@ -1,0 +1,165 @@
+// YANG Module: network-device
+// This file documents the YANG data model used by the RESTCONF simulator.
+// In a production environment, this YANG model would be loaded by the
+// RESTCONF server (e.g., Cisco IOS-XE NETCONF/RESTCONF engine).
+//
+// YANG defines the structure of network data that RESTCONF operates on.
+// RESTCONF uses YANG models to determine valid URLs, data structures,
+// and operations.
+
+// ============================================================
+// YANG Model: network-device.yang
+// ============================================================
+//
+// module network-device {
+//   namespace "urn:example:network-device";
+//   prefix nd;
+//
+//   revision 2024-01-01 {
+//     description "Initial revision for academic demonstration";
+//   }
+//
+//   container device {
+//     description "Top-level container for network device configuration";
+//
+//     leaf hostname {
+//       type string;
+//       description "The hostname of the network device";
+//     }
+//
+//     leaf vendor {
+//       type string;
+//       description "Device manufacturer";
+//     }
+//
+//     leaf model {
+//       type string;
+//       description "Device model number";
+//     }
+//
+//     leaf os-version {
+//       type string;
+//       description "Operating system version";
+//     }
+//
+//     leaf serial-number {
+//       type string;
+//       description "Device serial number";
+//     }
+//
+//     leaf status {
+//       type enumeration {
+//         enum running {
+//           description "Device is operational";
+//         }
+//         enum stopped {
+//           description "Device is stopped";
+//         }
+//         enum error {
+//           description "Device has an error";
+//         }
+//       }
+//       description "Current operational status of the device";
+//     }
+//
+//     leaf uptime {
+//       type uint64;
+//       units "seconds";
+//       description "Device uptime in seconds";
+//     }
+//
+//     list interface {
+//       key "name";
+//       description "List of network interfaces on the device";
+//
+//       leaf name {
+//         type string;
+//         description "Interface name (e.g., GigabitEthernet0/1)";
+//       }
+//
+//       leaf ip-address {
+//         type string;
+//         description "IPv4 address assigned to the interface";
+//       }
+//
+//       leaf subnet-mask {
+//         type string;
+//         description "Subnet mask for the interface";
+//       }
+//
+//       leaf enabled {
+//         type boolean;
+//         default true;
+//         description "Administrative status of the interface";
+//       }
+//
+//       leaf status {
+//         type enumeration {
+//           enum up {
+//             description "Interface is operationally up";
+//           }
+//           enum down {
+//             description "Interface is operationally down";
+//           }
+//           enum testing {
+//             description "Interface is in testing mode";
+//           }
+//         }
+//         description "Operational status of the interface";
+//       }
+//
+//       leaf description {
+//         type string;
+//         description "Human-readable description of the interface";
+//       }
+//
+//       leaf speed {
+//         type string;
+//         description "Interface speed";
+//       }
+//
+//       leaf mtu {
+//         type string;
+//         description "Maximum Transmission Unit";
+//       }
+//     }
+//   }
+// }
+//
+// ============================================================
+// YANG → RESTCONF URL Mapping:
+// ============================================================
+//
+// YANG Path                          RESTCONF URL
+// ─────────────────────────────────  ────────────────────────────────────────────────────
+// /device                            /restconf/data/network-device:device
+// /device/hostname                   /restconf/data/network-device:device/hostname
+// /device/interface                  /restconf/data/network-device:device/interface
+// /device/interface[name="Gig0/1"]   /restconf/data/network-device:device/interface=GigabitEthernet0%2F1
+//
+// ============================================================
+// YANG → JSON Mapping:
+// ============================================================
+//
+// {
+//   "network-device:device": {
+//     "hostname": "Router-01",
+//     "vendor": "Cisco",
+//     "model": "CSR1000V",
+//     "os-version": "IOS-XE 17.3.4",
+//     "status": "running",
+//     "uptime": 864000,
+//     "interface": [
+//       {
+//         "name": "GigabitEthernet1",
+//         "ip-address": "192.168.1.1",
+//         "subnet-mask": "255.255.255.0",
+//         "enabled": true,
+//         "status": "up",
+//         "description": "Management Interface",
+//         "speed": "1000Mbps",
+//         "mtu": "1500"
+//       }
+//     ]
+//   }
+// }
